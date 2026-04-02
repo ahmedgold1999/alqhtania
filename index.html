@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>ثانوية القحطانية للبنين | التميز والريادة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <style>
+        /* كل الـ CSS كما هو موجود في الكود السابق - أضفت فقط التأكد من وجود كل العناصر */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(145deg, #0a1f2e 0%, #0c2a3b 100%);
+            color: #eee;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(circle at 20% 30%, rgba(218,165,32,0.15), transparent 70%);
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" opacity="0.05"><path fill="%23e4b363" d="M769 229L1037 260.9 927 497.7 769 229z"/><circle cx="400" cy="400" r="50" fill="%23e4b363"/></svg>') repeat;
+            animation: slowRotate 60s linear infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes slowRotate {
+            0% { transform: rotate(0deg);}
+            100% { transform: rotate(360deg);}
+        }
+
+        .school-name {
+            font-size: 4.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #FFE6B0, #E4B363, #FFD966);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1.2s ease-out, glowPulse 3s infinite alternate;
+        }
+        
+        @keyframes glowPulse {
+            0% { text-shadow: 0 0 2px #e4b363; }
+            100% { text-shadow: 0 0 20px #ffd966; }
+        }
+        
+        .school-description {
+            font-size: 1.2rem;
+            max-width: 950px;
+            margin: 1rem auto;
+            line-height: 1.9;
+            background: rgba(0,0,0,0.55);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 2rem;
+            border-radius: 30px;
+            border: 1px solid rgba(228,179,99,0.6);
+        }
+        
+        .scroll-down {
+            margin-top: 4rem;
+            font-size: 2rem;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+            color: #e4b363;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        
+        @keyframes bounce {
+            0%,100%{ transform: translateY(0);}
+            50%{ transform: translateY(12px);}
+        }
+
+        section {
+            margin: 6rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title span {
+            background: linear-gradient(120deg, #e4b363, #ffdd99);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            border-bottom: 3px solid #e4b363;
+            padding-bottom: 8px;
+        }
+
+        /* الصفوف */
+        .classes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .class-card {
+            background: rgba(20, 40, 55, 0.7);
+            backdrop-filter: blur(12px);
+            border-radius: 2rem;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.5s;
+            border: 1px solid rgba(228,179,99,0.3);
+        }
+        
+        .class-card:hover {
+            transform: translateY(-12px);
+            border-color: #e4b363;
+        }
+        
+        .class-icon {
+            font-size: 2.5rem;
+            color: #e4b363;
+            margin-bottom: 1rem;
+        }
+        
+        .class-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffde9e;
+        }
+        
+        .students-count {
+            font-size: 1.6rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #f3d382, #e4b363);
+            display: inline-block;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            margin-top: 1rem;
+            color: #1e2f3a;
+        }
+
+        /* الفعاليات */
+        .events-swiper {
+            width: 100%;
+            padding: 20px 0;
+        }
+        
+        .event-card {
+            background: linear-gradient(145deg, #1e3a4e, #143040);
+            border-radius: 2rem;
+            overflow: hidden;
+            border: 1px solid rgba(228,179,99,0.4);
+        }
+        
+        .event-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+        
+        .event-info {
+            padding: 1.5rem;
+        }
+        
+        .event-info h3 {
+            font-size: 1.5rem;
+            color: #ffde9e;
+        }
+        
+        .show-more-btn {
+            background: linear-gradient(135deg, #e4b363, #c9922b);
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 40px;
+            color: #1e2f3a;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 0.5rem;
+        }
+
+        /* المدرسين */
+        .teachers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .teacher-card {
+            background: linear-gradient(145deg, #1f3e4e, #102c3a);
+            border-radius: 2rem;
+            overflow: hidden;
+            transition: all 0.5s;
+        }
+        
+        .teacher-card:hover {
+            transform: translateY(-10px);
+            border-bottom: 3px solid #e4b363;
+        }
+        
+        .teacher-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .teacher-info {
+            padding: 1.5rem;
+        }
+        
+        .teacher-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ffde9e;
+        }
+        
+        .teacher-subject {
+            font-size: 0.9rem;
+            background: rgba(228,179,99,0.2);
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            margin: 0.5rem 0;
+            color: #e4b363;
+        }
+
+        /* المختبرات */
+        .labs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .lab-card {
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(8px);
+            border-radius: 1.5rem;
+            overflow: hidden;
+            border: 1px solid rgba(228,179,99,0.3);
+        }
+        
+        .lab-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card-content h3 {
+            color: #e4b363;
+            margin-bottom: 0.5rem;
+        }
+
+        /* مجلس الآباء */
+        .parents-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .parent-card {
+            width: 180px;
+            background: linear-gradient(135deg, #2c4b5e, #1e3a4a);
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: all 0.4s;
+            border: 1px solid rgba(228,179,99,0.3);
+            cursor: pointer;
+        }
+        
+        .parent-card:hover {
+            transform: translateY(-8px);
+            border-color: #e4b363;
+        }
+        
+        .parent-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .parents-description {
+            margin-bottom: 2rem;
+        }
+        
+        .parents-description p {
+            background: rgba(10, 30, 40, 0.85);
+            backdrop-filter: blur(12px);
+            border-radius: 25px;
+            padding: 1.5rem;
+            border-right: 4px solid #e4b363;
+            text-align: center;
+        }
+
+        /* المودالات */
+        .gallery-modal, .image-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .gallery-modal.active, .image-modal.active {
+            display: flex;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            max-width: 1200px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            padding: 1.5rem;
+            background: rgba(0,0,0,0.8);
+            border-radius: 1rem;
+        }
+        
+        .gallery-grid img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            cursor: pointer;
+        }
+        
+        .close-modal, .close-img-modal {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 2rem;
+            color: #e4b363;
+            cursor: pointer;
+            z-index: 2001;
+        }
+        
+        .image-modal img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(228,179,99,0.3);
+            margin-top: 3rem;
+        }
+        
+        .fade-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.9s ease, transform 0.8s ease;
+        }
+        
+        .fade-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+       /* قسم المبرمج */
+.developer-section {
+    margin: 4rem 0;
+}
+
+.developer-card {
+    background: linear-gradient(145deg, #1e3a4e, #0f2c3a);
+    border-radius: 2rem;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    border: 1px solid rgba(228, 179, 99, 0.4);
+    transition: transform 0.4s;
+}
+
+.developer-card:hover {
+    transform: translateY(-5px);
+    border-color: #e4b363;
+}
+
+.developer-image {
+    flex: 0 0 280px;
+    text-align: center;
+}
+
+.developer-image img {
+    width: 100%;
+    max-width: 260px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #e4b363;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+}
+
+.developer-image img:hover {
+    transform: scale(1.03);
+}
+
+.developer-info {
+    flex: 1;
+}
+
+.developer-name {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #ffde9e;
+    margin-bottom: 0.5rem;
+}
+
+.developer-badge {
+    display: inline-block;
+    background: rgba(228, 179, 99, 0.2);
+    padding: 0.5rem 1.2rem;
+    border-radius: 40px;
+    font-size: 0.9rem;
+    margin-bottom: 1.2rem;
+    color: #e4b363;
+}
+
+.developer-badge i {
+    margin-left: 8px;
+}
+
+.developer-quote {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 1.2rem;
+    border-radius: 1rem;
+    margin: 1rem 0;
+    line-height: 1.8;
+    border-right: 3px solid #e4b363;
+    font-size: 1rem;
+}
+
+.developer-quote i {
+    color: #e4b363;
+    margin: 0 5px;
+    font-size: 0.9rem;
+}
+
+.developer-tech {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.developer-tech span {
+    background: rgba(228, 179, 99, 0.15);
+    padding: 0.4rem 1rem;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.developer-tech span i {
+    color: #e4b363;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .developer-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+    .developer-image {
+        flex: 0 0 auto;
+    }
+    .developer-quote {
+        text-align: center;
+    }
+    .developer-tech {
+        justify-content: center;
+    }
+} 
+        .swiper-button-next, .swiper-button-prev {
+            color: #e4b363 !important;
+        }
+        
+        @media (max-width: 768px) {
+            .school-name { font-size: 2.5rem; }
+            .section-title { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <div class="container" style="text-align: center;">
+        <h1 class="school-name">ثانوية القحطانية للبنين</h1>
+        <div class="school-description">
+            <i class="fas fa-landmark" style="margin-left: 10px;"></i> 
+            تعد ثانوية القحطانية للبنين في قضاء الضلوعية بمحافظة صلاح الدين واحدة من المؤسسات التربوية الرائدة التي تسعى دوماً لتحقيق التميز. 
+            تهدف المدرسة إلى توفير بيئة تعليمية محفزة تدفع بالطلبة نحو التفوق الدراسي والبحث العلمي، مع الالتزام بالقيم الوطنية والتربوية الرصينة.
+        </div>
+        <div class="scroll-down" id="scrollToClasses">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </div>
+</div>
+
+<main class="container">
+    <!-- المدرسين -->
+    <section class="fade-scroll">
+        <div class="section-title"><span>🏆 هيئة التدريس 🏆</span></div>
+        <div class="teachers-grid" id="teachersGrid"></div>
+    </section>
+
+    <!-- الفعاليات -->
+    <section class="fade-scroll">
+        <div class="section-title"><span>📸 الفعاليات والأحداث 📸</span></div>
+        <div class="swiper events-swiper">
+            <div class="swiper-wrapper" id="eventsSwiperWrapper"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+
+    <!-- الصفوف -->
+    <section id="classesSection" class="fade-scroll">
+        <div class="section-title"><span>⧫ اجمالي الصفوف المتواجدة في الثانوية ⧫</span></div>
+        <div class="classes-grid" id="classesGrid"></div>
+    </section>
+
+    <!-- المختبرات -->
+    <section class="fade-scroll">
+        <div class="section-title"><span>🔬 مختبرات متطورة 🔬</span></div>
+        <div class="labs-grid" id="labsGrid"></div>
+    </section>
+
+    <!-- مجلس الآباء -->
+    <section class="fade-scroll parents-section">
+        <div class="section-title"><span>👨‍👩‍👦 مجلس الآباء والمعلمين 👨‍👩‍👦</span></div>
+        <div class="parents-description">
+            <p>
+                <i class="fas fa-calendar-alt" style="color: #e4b363; margin-left: 10px;"></i> 
+                أقيم بحمد الله هذا اليوم الاثنين ٢٨/١٠/٢٠١٩ اجتماع مجلس الآباء والمدرسين في ثانوية القحطانية للبنين 
+                وتم خلال الاجتماع انتخاب رئيساً للمجلس ونوقش خلال الاجتماع المستوى العلمي للطلبة وكيفية النهوض بالواقع العلمي 
+                والتربوي والسبل الموصلة إلى إنجاح العملية التربوية متمنين لطلبتنا الاعزار التفوق الدائم
+            </p>
+        </div>
+        <div class="parents-grid" id="parentsGrid"></div>
+       <!-- قسم المبرمج - طالب في المدرسة -->
+    <section class="fade-scroll developer-section">
+        <div class="section-title"><span>💻 مبرمج الموقع 💻</span></div>
+        <div class="developer-card">
+            <div class="developer-image">
+                <img src="anas.jpg" alt="مبرمج الموقع" onerror="this.src='https://randomuser.me/api/portraits/men/32.jpg'">
+            </div>
+            <div class="developer-info">
+                <h3 class="developer-name">انس سلام محمد الخزرجي</h3>
+                <div class="developer-badge">
+                    <i class="fas fa-graduation-cap"></i> طالب في ثانوية القحطانية للبنين
+                </div>
+                <div class="developer-quote">
+                    <i class="fas fa-quote-right"></i>
+                    تم تصميم وتطوير هذا الموقع بالكامل من قبل طالب في المدرسة، 
+                    إيماناً منه بأهمية التحول الرقمي في العملية التعليمية، 
+                    وبجهود ذاتية وخبرات متراكمة في مجال البرمجة وتقنيات الويب.
+                    <i class="fas fa-quote-left"></i>
+                </div>
+                <div class="developer-tech">
+                    <span><i class="fab fa-html5"></i> HTML5</span>
+                    <span><i class="fab fa-css3-alt"></i> CSS3</span>
+                    <span><i class="fab fa-js"></i> JavaScript</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <i class="fas fa-graduation-cap"></i> ثانوية القحطانية للبنين - الضلوعية، صلاح الدين <i class="fas fa-chalkboard-user"></i><br>
+    © 2026 جميع الحقوق محفوظة
+</footer>
+
+<!-- مودال عرض الصور -->
+<div id="galleryModal" class="gallery-modal">
+    <div class="close-modal" id="closeModalBtn">&times;</div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+</div>
+
+<!-- مودال تكبير الصور -->
+<div id="imageModal" class="image-modal">
+    <div class="close-img-modal" id="closeImageModalBtn">&times;</div>
+    <img id="expandedImage" src="" alt="صورة مكبرة">
+</div>
+
+<script>
+    // ====================== البيانات ======================
+    
+    const classNames = ["الأول متوسط", "الثاني متوسط", "الثالث متوسط", "الرابع العلمي", "الخامس العلمي", "السادس العلمي"];
+    function randomCount() { return Math.floor(Math.random() * (40 - 32 + 1) + 32); }
+    let studentsCounts = classNames.map(() => randomCount());
+    
+// بيانات الفعاليات
+const battleNames = ["معركة بدر الكبرى", "مكة قبل الاسلام", "المعرض العلمي"];
+const battleFolders = ["maraka", "maka", "elme"]; // أسماء المجلدات لكل فعالية
+const battleDescriptions = [
+    "ثانوية القحطانية للبنين تُجسد التاريخ: محاكاة تفاعلية لمعركة بدر الكبرى، استعرض فيها طلابنا ببراعة تكتيكات 'يوم الفرقان' ومنهج الشورى النبوي.",
+    "محاكاة تاريخية لمكة قبل الإسلام، عرض تفاعلي يصور الحياة الاجتماعية والاقتصادية والدينية في الجزيرة العربية قبل البعثة النبوية.",
+    "المعرض العلمي السنوي للطلبة المتميزين، حيث تم عرض أحدث المشاريع العلمية والابتكارات الطلابية."
+];
+
+    
+    async function loadEventsData() {
+        const eventsData = [];
+        for(let i = 1; i <= 3; i++) {
+            eventsData.push({
+                img: `https://picsum.photos/id/${80 + i}/400/300`,
+                title: battleNames[i-1],
+                desc: battleDescriptions[i-1]
+            });
+        }
+        return eventsData;
+    }
+    
+   // المدرسين (مرتب بنفس النمط المطلوب)
+const teachersData = [
+    { name: "عدنان صبار بيك", subject: "مدير المدرسة / الكيمياء", desc: "قائد مسيرتها التربوية، يجمع بين الخبرة الإدارية والرؤية الأكاديمية.", img: "teachers/adnansabar.jpg" },
+    { name: "خوام عاصي حاجي", subject: "معاون مدير / اللغة الانكليزية", desc: "الركيزة الإدارية الداعمة، المشرف على المسيرة التعليمية.", img: "teachers/kawam.jpg" },
+    { name: "صائب صبار بيك", subject: "الإرشاد التربوي", desc: "مرشد تربوي متميز، يقدم الدعم النفسي والتربوي للطلبة.", img: "teachers/saib.jpg" },
+    { name: "محمد ثامر يحيى", subject: "اللغة العربية", desc: "متميز في تدريس النحو والأدب العربي.", img: "teachers/mohamedthamer.jpg" },
+    { name: "بابان محمد صالح", subject: "التربية الإسلامية", desc: "متخصص في علوم القرآن والحديث الشريف.", img: "teachers/baban.jpg" },
+    { name: "حازم جسام محمد", subject: "اللغة العربية", desc: "خبير في البلاغة والنقد الأدبي.", img: "teachers/hazem.jpg" },
+    { name: "أسامة حميد صبحي", subject: "الرياضيات", desc: "متميز في تدريس الجبر والهندسة التحليلية.", img: "teachers/osama.jpg" },
+    { name: "أحمد علي خلف", subject: "الكيمياء", desc: "خبير في الكيمياء التحليلية والتجارب العملية.", img: "teachers/ahmedali.jpg" },
+    { name: "صفا حامد مسرهد", subject: "الحاسوب", desc: "متخصص في البرمجة وتقنيات الذكاء الاصطناعي.", img: "teachers/safa.jpg" },
+    { name: "خضر الياس فائق", subject: "اللغة الانكليزية", desc: "متميز في تدريس القواعد والمحادثة.", img: "teachers/kder.jpg" },
+    { name: "علي شهاب أحمد", subject: "الاقتصاد", desc: "خبير في التنمية الاقتصادية والتخطيط المالي.", img: "teachers/ali.jpg" },
+    { name: "غالب علي كامل", subject: "التاريخ", desc: "متخصص في التاريخ الإسلامي والحديث.", img: "teachers/qaleb.jpg" },
+    { name: "رائد كامل جاسم", subject: "التاريخ", desc: "مهتم بالحضارة الإسلامية وتاريخ المنطقة.", img: "teachers/raadkamel.jpg" },
+    { name: "محمد أثير مظهر", subject: "الرياضيات", desc: "متخصص في التفاضل والتكامل والإحصاء.", img: "teachers/mohamedather.jpg" },
+    { name: "مصطفى عدنان صبار", subject: "الأحياء", desc: "خبير في علم الوراثة والتشريح.", img: "teachers/mustafa.jpg" },
+    { name: "سوسن إبراهيم عبدالله", subject: "الأحياء", desc: "متخصصة في علم النبات والبيئة.", img: "teachers/female.jpg" },
+    { name: "تغريد عبد المجيد سعد", subject: "التربية الإسلامية", desc: "متخصصة في الفقه والتفسير.", img: "teachers/female.jpg" },
+    { name: "سراب كاظم حسون", subject: "الرياضيات", desc: "متميزة في تدريس الهندسة والجبر.", img: "teachers/female.jpg" },
+    { name: "ضحى قحطان نصيف", subject: "اللغة الانكليزية", desc: "متخصصة في الأدب الإنجليزي والترجمة.", img: "teachers/female.jpg" },
+    { name: "بيان حسين ناعم", subject: "الكيمياء", desc: "متخصصة في الكيمياء العضوية والفيزيائية.", img: "teachers/female.jpg" },
+    { name: "سوسن فيصل محمود", subject: "التربية الإسلامية", desc: "متخصصة في علوم القرآن والحديث.", img: "teachers/female.jpg" }
+];
+    
+    const labsData = [
+        { img: "lab/4.jpg", title: "مختبر الفيزياء", desc: "أحدث الأجهزة" },
+        { img: "lab/2.jpg", title: "مختبر الكيمياء", desc: "معمل متكامل" },
+        { img: "lab/6.jpg", title: "مختبر الحاسوب", desc: "أجهزة متطورة" }
+    ];
+    
+    const parentsData = [
+        { img: "aba/1.jpg" }, { img: "aba/2.jpg" }, { img: "aba/3.jpg" },
+        { img: "aba/4.jpg" }, { img: "aba/5.jpg" }, { img: "aba/6.jpg" }
+    ];
+    
+  // ====================== دوال العرض ======================
+    
+function renderClasses() {
+    const container = document.getElementById('classesGrid');
+    if(!container) return;
+    container.innerHTML = '';
+    classNames.forEach((name, idx) => {
+        const card = document.createElement('div');
+        card.className = 'class-card';
+        card.innerHTML = `
+            <div class="class-icon"><i class="fas ${['fa-chalkboard','fa-book','fa-flask','fa-calculator','fa-globe','fa-laptop'][idx]}"></i></div>
+            <div class="class-name">${name}</div>
+            <div class="students-count">${studentsCounts[idx]} طالب</div>
+        `;
+        container.appendChild(card);
+    });
+}
+
+function renderTeachers() {
+    const grid = document.getElementById('teachersGrid');
+    if(!grid) return;
+    grid.innerHTML = '';
+    teachersData.forEach(t => {
+        const card = document.createElement('div');
+        card.className = 'teacher-card';
+        card.innerHTML = `
+            <div style="height:300px; overflow:hidden;">
+                <img class="teacher-img" src="${t.img}" onerror="this.src='https://randomuser.me/api/portraits/men/1.jpg'">
+            </div>
+            <div class="teacher-info">
+                <div class="teacher-name">${t.name}</div>
+                <div class="teacher-subject"><i class="fas fa-chalkboard"></i> ${t.subject}</div>
+                <div class="teacher-desc">${t.desc}</div>
+            </div>
+        `;
+        grid.appendChild(card);
+    });
+}
+
+async function renderEventsSwiper() {
+    const eventsData = await loadEventsData();
+    const wrapper = document.getElementById('eventsSwiperWrapper');
+    if(!wrapper) return;
+    wrapper.innerHTML = '';
+    eventsData.forEach(e => {
+        const slide = document.createElement('div');
+        slide.className = 'swiper-slide';
+        slide.innerHTML = `
+            <div class="event-card">
+                <img src="${e.img}">
+                <div class="event-info">
+                    <h3>${e.title}</h3>
+                    <p>${e.desc}</p>
+                    <button class="show-more-btn" onclick="openGallery()"><i class="fas fa-images"></i> عرض الصور</button>
+                </div>
+            </div>
+        `;
+        wrapper.appendChild(slide);
+    });
+    
+    new Swiper('.events-swiper', {
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        loop: true,
+        slidesPerView: 1,
+        breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+    });
+}
+
+function renderLabs() {
+    const grid = document.getElementById('labsGrid');
+    if(!grid) return;
+    grid.innerHTML = '';
+    labsData.forEach(lab => {
+        const card = document.createElement('div');
+        card.className = 'lab-card';
+        card.innerHTML = `
+            <img src="${lab.img}" onerror="this.src='https://picsum.photos/id/96/400/250'">
+            <div class="card-content">
+                <h3>${lab.title}</h3>
+                <p>${lab.desc}</p>
+            </div>
+        `;
+        grid.appendChild(card);
+    });
+}
+
+function renderParents() {
+    const grid = document.getElementById('parentsGrid');
+    if(!grid) return;
+    grid.innerHTML = '';
+    parentsData.forEach((p, idx) => {
+        const card = document.createElement('div');
+        card.className = 'parent-card';
+        card.setAttribute('onclick', `openImageModal('${p.img}')`);
+        card.innerHTML = `<img src="${p.img}" onerror="this.src='https://picsum.photos/id/${100 + idx}/200/200'">`;
+        grid.appendChild(card);
+    });
+}
+
+function openGallery() {
+    const modal = document.getElementById('galleryModal');
+    if(modal) modal.classList.add('active');
+}
+
+function closeGallery() {
+    const modal = document.getElementById('galleryModal');
+    if(modal) modal.classList.remove('active');
+}
+
+function openImageModal(imgSrc) {
+    const modal = document.getElementById('imageModal');
+    const img = document.getElementById('expandedImage');
+    if(modal && img) {
+        img.src = imgSrc;
+        modal.classList.add('active');
+    }
+}
+
+function closeImageModal() {
+    const modal = document.getElementById('imageModal');
+    if(modal) modal.classList.remove('active');
+}
+
+// تأثير التمرير - تم التعديل
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1 });
+// دالة لتحميل الصور من مجلد معين
+async function loadImagesFromFolder(folderName) {
+    const images = [];
+    let imageIndex = 1;
+    let hasMoreImages = true;
+    
+    while (hasMoreImages && imageIndex <= 30) {
+        const imgPath = `${folderName}/${imageIndex}.jpg`;
+        try {
+            const imgTest = new Image();
+            await new Promise((resolve) => {
+                imgTest.onload = resolve;
+                imgTest.onerror = () => resolve(null);
+                imgTest.src = imgPath;
+            });
+            
+            if (imgTest.complete && imgTest.naturalWidth > 0) {
+                images.push(imgPath);
+                imageIndex++;
+            } else {
+                hasMoreImages = false;
+            }
+        } catch(e) {
+            hasMoreImages = false;
+        }
+    }
+    
+    return images;
+}
+
+// دالة للحصول على أول صورة في المجلد للمعاينة
+async function getFirstImageFromFolder(folderName) {
+    const images = await loadImagesFromFolder(folderName);
+    if (images.length > 0) {
+        return images[0];
+    }
+    return `https://picsum.photos/id/100/400/300`;
+}
+
+// دالة لإنشاء بيانات الفعاليات تلقائياً
+async function loadEventsData() {
+    const eventsData = [];
+    for(let i = 0; i < battleNames.length; i++) {
+        const previewImg = await getFirstImageFromFolder(battleFolders[i]);
+        eventsData.push({
+            img: previewImg,
+            title: battleNames[i],
+            desc: battleDescriptions[i],
+            folder: battleFolders[i]
+        });
+    }
+    return eventsData;
+}
+
+// عرض الفعاليات باستخدام Swiper
+async function renderEventsSwiper() {
+    const eventsData = await loadEventsData();
+    const wrapper = document.getElementById('eventsSwiperWrapper');
+    if(!wrapper) return;
+    wrapper.innerHTML = '';
+    
+    eventsData.forEach((e, idx) => {
+        const slide = document.createElement('div');
+        slide.className = 'swiper-slide';
+        slide.innerHTML = `
+            <div class="event-card">
+                <img src="${e.img}" alt="${e.title}" onerror="this.src='https://picsum.photos/id/100/400/300'">
+                <div class="event-info">
+                    <h3>${e.title}</h3>
+                    <p>${e.desc}</p>
+                    <button class="show-more-btn" data-folder="${e.folder}" data-title="${e.title}">
+                        <i class="fas fa-images"></i> عرض الصور
+                    </button>
+                </div>
+            </div>
+        `;
+        wrapper.appendChild(slide);
+    });
+    
+    new Swiper('.events-swiper', {
+        navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        loop: true,
+        slidesPerView: 1,
+        spaceBetween: 20,
+        breakpoints: { 
+            768: { slidesPerView: 2 }, 
+            1024: { slidesPerView: 3 } 
+        }
+    });
+    
+    // إضافة أحداث للأزرار
+    document.querySelectorAll('.show-more-btn').forEach(btn => {
+        btn.addEventListener('click', async (e) => {
+            e.stopPropagation();
+            const folder = btn.getAttribute('data-folder');
+            const title = btn.getAttribute('data-title');
+            await openGalleryForEvent(folder, title);
+        });
+    });
+}
+
+// دالة فتح معرض الصور لفعالية محددة
+async function openGalleryForEvent(folderName, eventTitle) {
+    const modal = document.getElementById('galleryModal');
+    const galleryGrid = document.getElementById('galleryGrid');
+    
+    if(!modal) return;
+    
+    galleryGrid.innerHTML = '<div style="text-align:center; padding:2rem;"><i class="fas fa-spinner fa-pulse"></i> جاري تحميل الصور...</div>';
+    modal.classList.add('active');
+    
+    // تحميل صور الفعالية
+    const images = await loadImagesFromFolder(folderName);
+    
+    // عرض الصور
+    galleryGrid.innerHTML = '';
+    if (images.length === 0) {
+        galleryGrid.innerHTML = `<div style="text-align:center; padding:2rem;">
+            <i class="fas fa-image"></i> لا توجد صور لـ ${eventTitle}
+        </div>`;
+    } else {
+        images.forEach(imgSrc => {
+            const imgEl = document.createElement('img');
+            imgEl.src = imgSrc;
+            imgEl.style.borderRadius = '0.5rem';
+            imgEl.style.cursor = 'pointer';
+            imgEl.style.width = '100%';
+            imgEl.style.height = '180px';
+            imgEl.style.objectFit = 'cover';
+            imgEl.onclick = () => window.open(imgSrc, '_blank');
+            galleryGrid.appendChild(imgEl);
+        });
+    }
+}
+
+// دالة فتح معرض الصور الافتراضية (للتوافق مع الكود القديم)
+async function openGallery() {
+    if(battleFolders.length > 0) {
+        await openGalleryForEvent(battleFolders[0], battleNames[0]);
+    }
+}
+
+// الأحداث
+document.getElementById('scrollToClasses')?.addEventListener('click', () => {
+    document.getElementById('classesSection')?.scrollIntoView({ behavior: 'smooth' });
+});
+
+document.getElementById('closeModalBtn')?.addEventListener('click', closeGallery);
+document.getElementById('closeImageModalBtn')?.addEventListener('click', closeImageModal);
+
+window.addEventListener('click', (e) => {
+    if(e.target === document.getElementById('galleryModal')) closeGallery();
+    if(e.target === document.getElementById('imageModal')) closeImageModal();
+});
+
+document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape') {
+        closeGallery();
+        closeImageModal();
+    }
+});
+
+// تشغيل الموقع بعد تحميل الصفحة بالكامل
+window.addEventListener('DOMContentLoaded', function() {
+    renderClasses();
+    renderTeachers();
+    renderEventsSwiper();
+    renderLabs();
+    renderParents();
+    
+    // بدء مراقبة عناصر fade-scroll
+    document.querySelectorAll('.fade-scroll').forEach(el => observer.observe(el));
+    
+    // إظهار جميع العناصر فوراً للتأكد
+    setTimeout(() => {
+        document.querySelectorAll('.fade-scroll').forEach(el => {
+            el.classList.add('visible');
+        });
+    }, 100);
+});
+</script>
+</body>
+</html>
